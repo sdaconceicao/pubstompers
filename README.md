@@ -1,6 +1,6 @@
 # README #
 
-Home Inventory Manager is a web application I built in anticipation of moving to a new house. No inventory managers did what I needed so I built my own. Built with Angular.
+Pubstompers hub site. Built with Angular.
 
 ### Details ###
 
@@ -11,7 +11,6 @@ Home Inventory Manager is a web application I built in anticipation of moving to
 ### Setup ###
 
 1. Run npm install
-2. Run bower install
 
 ### Startup ###
 1. Run npm start
