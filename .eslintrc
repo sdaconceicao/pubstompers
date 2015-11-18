@@ -1,0 +1,38 @@
+{
+    "rules": {
+        "strict": [
+            2,
+            "global"
+        ],
+        "no-shadow": [0],
+        "consistent-return" : [0],
+        "global-strict": [
+            0
+        ],
+        "quotes": [
+            0
+        ],
+        "eol-last": [
+            0
+        ],
+        "key-spacing": [
+            0
+        ],
+        "no-console": [
+            0
+        ],
+        "no-unused-vars": [
+            0
+        ],
+        "space-infix-ops": [
+            0
+        ]
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "amd": true,
+        "jasmine": true
+    },
+    "globals": {}
+}

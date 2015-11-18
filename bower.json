@@ -1,0 +1,13 @@
+{
+  "name": "pubstompers",
+  "version": "1.0",
+  "dependencies": {
+    "angular": "~1.4.5",
+    "angular-animate": "~1.4.7",
+    "angular-foundation": "~0.8.0",
+    "angular-ui-router": "~0.2.15",
+    "components-font-awesome": "~4.4.0",
+    "foundation": "~5.5.3",
+    "lodash": "~3.10.1"
+  }
+}
