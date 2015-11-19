@@ -15,6 +15,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     preprocess = require('gulp-preprocess'),
+    ngConstant = require('gulp-ng-constant'),
     del = require('del'),
     runSequence = require('run-sequence'),
     vendorConfig = require('./vendor.conf.js'),
@@ -22,9 +23,12 @@ var gulp = require('gulp'),
     historyApiFallback = require('connect-history-api-fallback');
 ;
 
+
+
 //Directories/filenames
 var APP_DIR = './app',
     DIST_DIR = './dist',
+    CONFIG_FILE = 'app.conf.json',
     SCSS_MAIN_FILE = [APP_DIR + '/styles/styles.scss'],
     SCSS_WATCH_FILES = [SCSS_MAIN_FILE, APP_DIR + '/components/**/*.scss', APP_DIR + '/modules/**/*.scss'],
     IMG_FILES = [APP_DIR + '/styles/images/**/*'],
@@ -158,6 +162,26 @@ gulp.task('watch-fonts', function(){
     gulp.watch(FONT_FILES, ['fonts']);
 });
 
+gulp.task('constants', function(){
+    console.log("Creating constants");
+    gulp.src(CONFIG_FILE)
+        .pipe(ngConstant({
+            name: 'pub.constants',
+            wrap: ' /* global angular, module, require */ "use strict"; <%= __ngModule %>',
+            merge: true,
+            constants: {
+                api:{
+                    extralifeUrl: '//www.extra-life.org/index.cfm?format=json&fuseaction=',
+                }
+            }
+        }))
+        // Writes constants to config folder
+        .pipe(rename('constants.js'))
+        .pipe(gulp.dest(APP_DIR+'/config'));
+
+
+});
+
 gulp.task('browser-sync', function () {
     console.log("Loading BrowserSync");
 
@@ -189,7 +213,7 @@ gulp.task('tdd', function (done) {
 });
 
 gulp.task('default', function (done) {
-    runSequence('index', 'img', 'templates', 'sass', 'fonts', 'vendor',
+    runSequence('constants', 'index', 'img', 'templates', 'sass', 'fonts', 'vendor',
         'watch-index', 'watch-img', 'watch-templates', 'watch-sass', 'watch-fonts', 'watch-js',
         'browser-sync', done);
 });

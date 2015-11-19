@@ -41,5 +41,8 @@
   "scripts": {
     "postinstall": "bower install",
     "start": "gulp --gulpfile gulp.conf.js"
+  },
+  "dependencies": {
+    "gulp-ng-constant": "^1.1.0"
   }
 }
