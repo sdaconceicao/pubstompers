@@ -22,8 +22,14 @@ class MemberCardCtrl{
         this.init();
     }
     init(){
-        this.ExtraLifeService.getMemberDonations(this.member.participantID).then( donations => {
+        this.member.donationUrl = this.ExtraLifeService.getDonationUrl(this.member.participantID);
+        this.ExtraLifeService.getMemberDonations(this.member.participantID)
+        .then( donations => {
             this.donations = donations;
+            return this.ExtraLifeService.getMemberInfo(this.member.participantID);
+        })
+        .then( info => {
+            this.member.info = info;
             this.loading = false;
         });
     }

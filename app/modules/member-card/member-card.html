@@ -1,4 +1,5 @@
 {{::ctrl.member.firstName}} {{::ctrl.member.lastName}}
+<a ng-href="{{ctrl.member.donationUrl}}">Donate</a>
 <img ng-src="{{ctrl.member.avatarImageURL}}"></div>
 <ul ng-repeat="donation in ctrl.donations">
     <li>{{::donation.donationAmount || 'Donation Hidden'}}</li>

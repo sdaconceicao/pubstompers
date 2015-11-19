@@ -17,7 +17,7 @@ class ExtraLifeService{
             url: this.api.extralifeUrl + 'donorDrive.teamParticipants&teamID='+ id
         })
     }
-    getMember(id){
+    getMemberInfo(id){
         return this.RestService.call({
             url: this.api.extralifeUrl + 'donorDrive.participant&participantID=' + id
         })
@@ -26,6 +26,9 @@ class ExtraLifeService{
         return this.RestService.call({
             url: this.api.extralifeUrl + 'donorDrive.participantDonations&participantID=' + id
         })
+    }
+    getDonationUrl(id){
+        return this.api.extralifeUrl + 'donate.participant&participantID=' + id;
     }
 
 }
