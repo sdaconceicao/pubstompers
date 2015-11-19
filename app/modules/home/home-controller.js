@@ -5,19 +5,25 @@ class HomeController {
     constructor(ExtraLifeService, teams){
         this.ExtraLifeService = ExtraLifeService;
         this.teamId = teams[0].teamId;
+        this.loading = true;
+        this.init();
+    }
+    init(){
         this.ExtraLifeService.getTeam(this.teamId)
             .then((teamInfo) => {
                 this.teamInfo = teamInfo;
                 return this.ExtraLifeService.getTeamMembers(this.teamId);
-            }, function(error){
-                this.error = true;
-            })
+                }, function(error){
+                    this.error = true;
+                }
+            )
             .then((members) => {
-                console.log(members);
+                this.loading = false;
                 this.members = members;
             });
     }
-
 }
+
+
 
 module.exports = HomeController;
