@@ -18,12 +18,13 @@ function memberCard(){
 class MemberCardCtrl{
     constructor(ExtraLifeService){
         this.ExtraLifeService = ExtraLifeService;
+        this.loading = true;
         this.init();
     }
     init(){
         this.ExtraLifeService.getMemberDonations(this.member.participantID).then( donations => {
-            console.log( donations);
             this.donations = donations;
+            this.loading = false;
         });
     }
 }
