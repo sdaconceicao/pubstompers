@@ -29,16 +29,20 @@ var gulp = require('gulp'),
 var APP_DIR = './app',
     DIST_DIR = './dist',
     CONFIG_FILE = 'app.conf.json',
-    SCSS_MAIN_FILE = [APP_DIR + '/styles/styles.scss'],
+    SCSS_MAIN_FILE = [APP_DIR + '/styles/main.scss'],
     SCSS_WATCH_FILES = [SCSS_MAIN_FILE, APP_DIR + '/components/**/*.scss', APP_DIR + '/modules/**/*.scss'],
     IMG_FILES = [APP_DIR + '/styles/images/**/*'],
     TEMPLATE_WATCH_FILES = [APP_DIR + '/components/**/*.html', APP_DIR + '/modules/**/*.html'],
     WEBPACK_CONF = require('./webpack.conf.js'),
     JS_MAIN_FILE = './app/app.js',
     JS_OUTPUT_FILE = 'scripts.min.js',
-    VENDOR_BUNDLER_FILES = vendorConfig().getVendorFileList(APP_DIR + '/', buildTarget),
+    VENDOR_BUNDLER_FILES = vendorConfig().getVendorJsList(APP_DIR + '/', buildTarget),
+    VENDOR_OUTPUT_CSS = 'vendor.css',
+    VENDOR_CSS_FILES = vendorConfig().getVendorStyleList(APP_DIR + '/', buildTarget),
     VENDOR_OUTPUT_FILE = 'vendor.min.js',
-    FONT_FILES = [APP_DIR + '/vendor/components-font-awesome/fonts/*']
+    FONT_FILES = [APP_DIR + '/vendor/components-font-awesome/fonts/*'],
+    MAIN_CSS_FILE = 'main.css',
+    OUTPUT_CSS_FILE = 'styles.css'
 ;
 
 var buildTarget = argv.buildTarget || "local";
@@ -114,9 +118,22 @@ gulp.task('watch-templates', function () {
 
 gulp.task('sass', function (done) {
     console.log('Compiling CSS');
-    return sass(SCSS_MAIN_FILE, { style: (production() ? 'compressed' : 'compressed') })
+
+    sass(SCSS_MAIN_FILE, { style: (production() ? 'compressed' : 'compressed') })
         .pipe(autoprefixer('last 2 version'))
         .pipe(gulp.dest(DIST_DIR));
+
+    return gulp.src([DIST_DIR + '/' + VENDOR_OUTPUT_CSS, DIST_DIR + '/' + MAIN_CSS_FILE])
+        .pipe(concat(OUTPUT_CSS_FILE))
+        .pipe(gulp.dest(DIST_DIR));
+
+});
+
+gulp.task('vendor-css', function(done){
+    return gulp.src(VENDOR_CSS_FILES)
+        .pipe(concat(VENDOR_OUTPUT_CSS))
+        .pipe(gulp.dest(DIST_DIR));
+
 });
 
 gulp.task('watch-sass', function () {
@@ -213,7 +230,7 @@ gulp.task('tdd', function (done) {
 });
 
 gulp.task('default', function (done) {
-    runSequence('constants', 'index', 'img', 'templates', 'sass', 'fonts', 'vendor',
+    runSequence('constants', 'index', 'img', 'templates', 'vendor-css', 'sass', 'fonts', 'vendor',
         'watch-index', 'watch-img', 'watch-templates', 'watch-sass', 'watch-fonts', 'watch-js',
         'browser-sync', done);
 });

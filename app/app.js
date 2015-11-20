@@ -6,7 +6,7 @@ let templates = require('../dist/templates'),
     components = require('./components/components'),
     home = require('./modules/home/home'),
     memberCard = require('./modules/member-card/member-card'),
-    dependencies = ['ngAnimate', 'ui.router', 'mm.foundation',
+    dependencies = ['ngAnimate', 'ui.router', 'ui.bootstrap',
         'pub.templates', 'pub.constants', components.name, home.name, memberCard.name
     ]
 ;

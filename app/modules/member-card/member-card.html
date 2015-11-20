@@ -1,6 +1,19 @@
-{{::ctrl.member.firstName}} {{::ctrl.member.lastName}}
-<a ng-href="{{ctrl.member.donationUrl}}">Donate</a>
-<img ng-src="{{ctrl.member.avatarImageURL}}"></div>
-<ul ng-repeat="donation in ctrl.donations">
-    <li>{{::donation.donationAmount || 'Donation Hidden'}}</li>
-</ul>
+<div class="row">
+    <div class="col-md-2">
+        <span class="row">{{::ctrl.member.firstName}} {{::ctrl.member.lastName}}</span>
+        <span class="row"><img ng-src="{{ctrl.member.avatarImageURL}}"></span>
+        <span class="row"><a ng-href="{{ctrl.member.donationUrl}}">Donate</a></span>
+    </div>
+    <div class="col-md-10">
+        <uib-tabset>
+            <uib-tab heading="Story">
+            </uib-tab>
+            <uib-tab heading="Donations">
+                <ul>
+                    <li ng-repeat="donation in ctrl.donations">{{::(donation.donationAmount | currency) || 'Donation Hidden'}}</li>
+                </ul>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+
+</div>
