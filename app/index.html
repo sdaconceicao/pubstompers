@@ -6,32 +6,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body ng-app="pub">
-
-<header class="navbar navbar-default navbar-inverse navbar-fixed-top">
-    <nav role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Pubstompers</a>
-            </div>
-        </div>
-    </nav>
-
-</header>
-<div id="main" ui-view="content" class="container">
-</div>
-<footer>
-    <hr>
-    <p>© Copyright 2015.</p>
-</footer>
-<script src="vendor.min.js"></script>
-<script src="scripts.min.js"></script>
+    <header>
+        <section style="height:500px; background-color:green">
+            Pubstompers
+        </section>
+    </header>
+    <nav-menu role="navigation"></nav-menu>
+    <div id="main" ui-view="content" class="container" container-fade-in></div>
+    <footer>
+        <hr>
+        <p>© Copyright 2015.</p>
+    </footer>
+    <script src="vendor.min.js"></script>
+    <script src="scripts.min.js"></script>
 
 </body>
 </html>

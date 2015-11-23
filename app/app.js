@@ -6,8 +6,11 @@ let templates = require('../dist/templates'),
     components = require('./components/components'),
     home = require('./modules/home/home'),
     memberCard = require('./modules/member-card/member-card'),
+    navMenu = require('./modules/nav-menu/nav-menu-directive'),
+    containerFadeIn = require('./modules/container-fade-in/container-fade-in-directive'),
     dependencies = ['ngAnimate', 'ui.router', 'ui.bootstrap',
-        'pub.templates', 'pub.constants', components.name, home.name, memberCard.name
+        'pub.templates', 'pub.constants', components.name, home.name,
+        memberCard.name, navMenu.name, containerFadeIn.name
     ]
 ;
 
