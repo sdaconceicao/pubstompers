@@ -7,7 +7,7 @@ class RestService{
         this.q = $q;
     }
     call(config){
-        var deferred = this.q.defer(), svc = this;
+        let deferred = this.q.defer(), svc = this;
         this.http(config)
             .then( function(response) {
                 svc.successHandler(deferred, config, response)
