@@ -1,0 +1,20 @@
+#intro-header{
+    background-color: green;
+    height:700px;
+    .content{
+        position:relative;
+        top:225px;
+        text-align:center;
+        .logo{
+            width:200px;
+            height:200px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        p{
+            font-size: 1.2rem;
+            color: $primary-text;
+            position:relative;
+        }
+    }
+}

@@ -1,10 +1,16 @@
-<div class="row">
-    <div class="col-md-2">
-        <span class="row">{{::ctrl.member.firstName}} {{::ctrl.member.lastName}}</span>
-        <span class="row"><img ng-src="{{ctrl.member.avatarImageURL}}"></span>
-        <span class="row"><a ng-href="{{ctrl.member.donationUrl}}">Donate</a></span>
+<div class="member-card" ng-class=" {'captain' : ctrl.member.info.isTeamCaptain}">
+    <div class="content">
+        <img ng-src="{{ctrl.member.avatarImageURL}}">
+        <ul class="info">
+            <li><a ng-href="{{ctrl.member.donationUrl}}" target="_blank" uib-tooltip="Donate to {{::ctrl.member.firstName}}!"><span class="fa fa-usd"></span></a></li>
+        </ul>
     </div>
-    <div class="col-md-10">
+    <div>{{::ctrl.member.firstName}} {{::ctrl.member.lastName}}</div>
+    <uib-progressbar class="progress-striped"
+                     type="{{ctrl.member.status}}"
+                     max="ctrl.member.info.fundraisingGoal" value="ctrl.member.info.totalRaisedAmount">
+    </uib-progressbar>
+    <div ng-if="ctrl.expanded">
         <uib-tabset>
             <uib-tab heading="Story">
             </uib-tab>
@@ -15,5 +21,4 @@
             </uib-tab>
         </uib-tabset>
     </div>
-
 </div>

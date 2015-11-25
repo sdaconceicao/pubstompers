@@ -30,9 +30,13 @@ class MemberCardCtrl{
         })
         .then( info => {
             this.member.info = info;
+            this.member.status = this.member.info.totalRaisedAmount >= this.member.info.fundraisingGoal ? 'success' : 'warning';
             this.loading = false;
         });
     }
 }
 
-module.exports = memberCard;
+module.exports = angular.module('pub.memberCard', [])
+    .directive('memberCard', memberCard)
+;
+;

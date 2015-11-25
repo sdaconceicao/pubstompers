@@ -40,7 +40,7 @@ var APP_DIR = './app',
     VENDOR_OUTPUT_CSS = 'vendor.css',
     VENDOR_CSS_FILES = vendorConfig().getVendorStyleList(APP_DIR + '/', buildTarget),
     VENDOR_OUTPUT_FILE = 'vendor.min.js',
-    FONT_FILES = [APP_DIR + '/vendor/components-font-awesome/fonts/*'],
+    FONT_FILES = [APP_DIR + '/vendor/components-font-awesome/fonts/*', APP_DIR + '/styles/fonts/*'],
     MAIN_CSS_FILE = 'main.css',
     OUTPUT_CSS_FILE = 'styles.css'
 ;

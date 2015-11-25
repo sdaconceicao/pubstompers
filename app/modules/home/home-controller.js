@@ -4,7 +4,7 @@
 class HomeController {
     constructor(ExtraLifeService, teams){
         this.ExtraLifeService = ExtraLifeService;
-        this.teamId = teams[0].teamId;
+        this.teamId = _.find( teams, { 'current': true }).teamId;
         this.loading = true;
         this.init();
     }

@@ -5,12 +5,13 @@ let templates = require('../dist/templates'),
     constants = require('./config/constants'),
     components = require('./components/components'),
     home = require('./modules/home/home'),
-    memberCard = require('./modules/member-card/member-card'),
+    memberCard = require('./modules/member-card/member-card-directive'),
+    introHeader = require('./modules/intro-header/intro-header-directive'),
     navMenu = require('./modules/nav-menu/nav-menu-directive'),
     containerFadeIn = require('./modules/container-fade-in/container-fade-in-directive'),
     dependencies = ['ngAnimate', 'ui.router', 'ui.bootstrap',
         'pub.templates', 'pub.constants', components.name, home.name,
-        memberCard.name, navMenu.name, containerFadeIn.name
+        memberCard.name, navMenu.name, containerFadeIn.name, introHeader.name
     ]
 ;
 

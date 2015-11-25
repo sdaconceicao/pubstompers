@@ -1,11 +1,14 @@
 @import
     "../vendor/components-font-awesome/scss/font-awesome",
-    "../modules/member-card/member-card",
     "./variables",
+    "./buttons",
+    "../modules/member-card/member-card",
     "../modules/home/home",
     "../modules/nav-menu/nav-menu",
     "../modules/member-card/member-card",
-    "../modules/container-fade-in/container-fade-in"
+    "../modules/container-fade-in/container-fade-in",
+    "../modules/intro-header/intro-header"
 ;
-
-
+html{
+    font-family: 'Lato', sans-serif;
+}
