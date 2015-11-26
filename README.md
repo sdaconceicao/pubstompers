@@ -5,7 +5,7 @@ Pubstompers hub site. Built with Angular.
 ### Details ###
 
 * Uses Angular
-* Version 0.1
+* Version 1.0
 
 
 ### Setup ###
