@@ -6,7 +6,8 @@
         </ul>
     </div>
     <div>{{::ctrl.member.firstName}} {{::ctrl.member.lastName}}</div>
-    <uib-progressbar class="progress-striped"
+
+    <uib-progressbar class="progress"
                      type="{{ctrl.member.status}}"
                      max="ctrl.member.info.fundraisingGoal" value="ctrl.member.info.totalRaisedAmount">
     </uib-progressbar>

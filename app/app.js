@@ -1,4 +1,4 @@
-/* global module, require */
+/* global angular, module, require */
 'use strict';
 
 let templates = require('../dist/templates'),

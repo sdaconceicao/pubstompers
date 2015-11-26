@@ -1,21 +1,67 @@
-.container {
-    h2{
+#main {
+    .container {
+        h2 {
+            text-align: center;
+            margin-top: 75px;
+            margin-bottom: 10px;
+        }
+        h3{
+            margin-top:20px;
+        }
+
+        hr {
+            width: 100px;
+            margin-bottom: 20px;
+            border-width: 4px;
+            border-color: #333;
+        }
+        ul li {
+            display: inline-block;
+        }
+        padding-bottom: 25px;
+        min-height: 500px;
+        p{
+            margin: 20px;
+        }
+
+    }
+    #about {
+        @include tintedBg("styles/images/section-bg2.jpg", darken($primary, 15%), 0.25);
         text-align: center;
+        color: darken($primary, 40%);
+        hr {
+            border-color: darken($primary, 40%);
+        }
+        .carousel{
+            margin-top:20px;
+        }
     }
-    ul li{
-        display:inline-block;
+
+    #team {
+        @include tintedBg("styles/images/section-bg1.jpg", darken($primary, 20%), 0.2);
+        text-align: center;
+
     }
-}
-#team {
-    text-align:center;
-}
-#join{
-    text-align: center;
-}
-#follow{
-    text-align: center;
-    .fa{
-        font-size:50px;
-        padding-right:15px;
+    #join {
+        @include tintedBg("styles/images/section-bg3.jpg", darken($primary, 25%), 0.5);
+        color: $primary-text;
+        hr {
+            border-color: $primary-text;
+        }
+        text-align: center;
+
+    }
+
+    #contact {
+        @include tintedBg("styles/images/section-bg4.jpg", darken($primary, 5%), 0.25);
+        text-align: center;
+        .fa {
+            color: $primary-text;
+            font-size: 50px;
+            padding-right: 15px;
+            &:hover {
+                color: $primary;
+            }
+        }
     }
 }

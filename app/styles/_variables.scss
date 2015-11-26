@@ -2,3 +2,10 @@ $primary: #4BA833;
 $primary-text: white;
 $secondary: #4BA931;
 $secondary-text: yellow;
+
+@mixin tintedBg($url, $color, $transparency){
+    background: linear-gradient(
+            rgba($color, $transparency),
+            rgba($color, $transparency)
+    ), url($url) no-repeat fixed center center;
+}

@@ -12,3 +12,18 @@
 html{
     font-family: 'Lato', sans-serif;
 }
+body{
+    background: #efefef url('styles/images/tiles_white.png') repeat center center;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Arvo', serif;
+}
+#main{
+    padding:0px;
+}
+footer{
+    background-color: darken($primary, 25%);
+    color:$primary-text;
+    margin-top:-15px;
+    padding:10px 20px;
+}

@@ -1,11 +1,12 @@
 #intro-header{
-    background-color: green;
+    @include tintedBg("styles/images/header-bg.jpg", darken($primary, 2%), 0.3);
     height:700px;
     .content{
         position:relative;
         top:225px;
         text-align:center;
         .logo{
+            background-image: url('styles/images/logo.png');
             width:200px;
             height:200px;
             margin-left:auto;
@@ -15,6 +16,7 @@
             font-size: 1.2rem;
             color: $primary-text;
             position:relative;
+            margin: 20px;
         }
     }
 }

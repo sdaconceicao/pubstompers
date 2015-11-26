@@ -1,14 +1,34 @@
 <section id="about" class="container" fade-in="500">
     <h2>About Us</h2>
-    <div class="col-lg-6">
-        We're a team of gamers who play for good.
+    <hr/>
+    <div class="col-md-6">
+        <p>
+            Bacon ipsum dolor amet drumstick boudin ham hock ut, ball tip flank do turkey kielbasa cillum pork chop tail velit. Kielbasa officia consequat jerky turducken cow in capicola dolore ea. Kielbasa ground round picanha tempor cillum officia fugiat boudin dolor laboris short ribs short loin exercitation prosciutto. Kevin cillum reprehenderit fatback pig ut anim aute. Leberkas sed pastrami, frankfurter dolore brisket nulla. Dolore consectetur ex, officia cow sed swine aute jerky hamburger chuck short ribs beef ribs drumstick esse. Deserunt irure dolore, ribeye pastrami prosciutto in eiusmod.
+        </p>
+        <h3>Our Current Goal</h3>
+        <hr/>
+        <uib-progressbar class="progress"
+                         type="success"
+                         max="ctrl.teamInfo.fundraisingGoal" value="ctrl.teamInfo.totalRaisedAmount">
+            {{ctrl.teamInfo.totalRaisedAmount | currency}} / {{ctrl.teamInfo.fundraisingGoal | currency}}
+
+        </uib-progressbar>
     </div>
-    <div class="col-lg-6">
-        Goal {{ctrl.teamInfo.fundraisingGoal}}
+
+    <div class="col-md-6">
+        <uib-carousel interval="10000">
+            <uib-slide ng-repeat="slide in ctrl.slides">
+                <img ng-src="{{slide.image}}" style="margin:auto;">
+                <div class="carousel-caption">
+                    <p>{{slide.text}}</p>
+                </div>
+            </uib-slide>
+        </uib-carousel>
     </div>
 </section>
 <section id="team" class="container" fade-in="500">
     <h2>Meet the team!</h2>
+    <hr/>
     <ul>
         <li ng-repeat="member in ctrl.members | orderBy : member.info.totalRaisedAmount">
             <member-card member="member"></member-card>
@@ -16,23 +36,17 @@
     </ul>
 </section>
 <section id="join" class="container" fadeIn="500">
-    <h2>Join us!</h2>
+    <h2>Join Us!</h2>
+    <hr/>
     <p>Be a part of the team</p>
-    <uib-carousel interval="3000">
-        <uib-slide ng-repeat="slide in slides" active="slide.active">
-            <img ng-src="{{slide.image}}" style="margin:auto;">
-            <div class="carousel-caption">
-                <h4>Slide {{$index}}</h4>
-                <p>{{slide.text}}</p>
-            </div>
-        </uib-slide>
-    </uib-carousel>
+    <p>Anim andouille venison in adipisicing nisi ham hock swine brisket salami shankle ground round tenderloin boudin sirloin. Commodo est prosciutto lorem leberkas quis veniam beef ribs andouille corned beef in pork tri-tip brisket. Dolor et minim, beef ribs veniam jowl nulla bresaola pork loin ut tail esse drumstick. Fugiat elit ham ut nulla, short loin dolor pork belly pork loin duis fatback capicola landjaeger.</p>
     <a ng-href="https://www.extra-life.org/index.cfm?fuseaction=register.start&eventID=525&teamID={{ctrl.teamId}}" target="_blank" class="btn btn-lg btn-primary">
         <span class="fa fa-gamepad"></span> Join Now!
     </a>
 </section>
-<section id="follow" class="container" fade-in="500">
-    <h2>Follow us</h2>
+<section id="contact" class="container" fade-in="500">
+    <h2>Contact Us</h2>
+    <hr/>
     <ul>
         <li><a href="//www.facebook.com/groups/756358254470165/" target="_blank"><span class="fa fa-facebook"></span></a></li>
         <li><a href="//www.twitter.com/pubstompersPgh" target="_blank"><span class="fa fa-twitter"></span></a></li>

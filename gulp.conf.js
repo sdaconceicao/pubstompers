@@ -31,7 +31,7 @@ var APP_DIR = './app',
     CONFIG_FILE = 'app.conf.json',
     SCSS_MAIN_FILE = [APP_DIR + '/styles/main.scss'],
     SCSS_WATCH_FILES = [SCSS_MAIN_FILE, APP_DIR + '/components/**/*.scss', APP_DIR + '/modules/**/*.scss'],
-    IMG_FILES = [APP_DIR + '/styles/images/**/*'],
+    IMG_FILES = [APP_DIR + '/styles/images/*'],
     TEMPLATE_WATCH_FILES = [APP_DIR + '/components/**/*.html', APP_DIR + '/modules/**/*.html'],
     WEBPACK_CONF = require('./webpack.conf.js'),
     JS_MAIN_FILE = './app/app.js',
@@ -40,7 +40,7 @@ var APP_DIR = './app',
     VENDOR_OUTPUT_CSS = 'vendor.css',
     VENDOR_CSS_FILES = vendorConfig().getVendorStyleList(APP_DIR + '/', buildTarget),
     VENDOR_OUTPUT_FILE = 'vendor.min.js',
-    FONT_FILES = [APP_DIR + '/vendor/components-font-awesome/fonts/*', APP_DIR + '/styles/fonts/*'],
+    FONT_FILES = [APP_DIR + '/vendor/components-font-awesome/fonts/*', APP_DIR + '/vendor/bootstrap/fonts/*'],
     MAIN_CSS_FILE = 'main.css',
     OUTPUT_CSS_FILE = 'styles.css'
 ;
@@ -160,7 +160,7 @@ gulp.task('watch-index', function () {
 gulp.task('img', function () {
     console.log("Moving Images");
     gulp.src(IMG_FILES)
-        .pipe(gulp.dest(DIST_DIR + '/images'));
+        .pipe(gulp.dest(DIST_DIR + '/styles/images'));
 });
 
 gulp.task('watch-img', function(){
