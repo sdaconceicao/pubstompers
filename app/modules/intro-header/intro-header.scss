@@ -1,5 +1,5 @@
 #intro-header{
-    @include tintedBg("styles/images/header-bg.jpg", darken($primary, 2%), 0.3);
+    @include tintedBg("styles/images/header-bg.jpg", darken($primary, 30%), 0.79);
     height:700px;
     .content{
         position:relative;
