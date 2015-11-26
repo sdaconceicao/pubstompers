@@ -2,24 +2,12 @@
     <div class="content">
         <img ng-src="{{ctrl.member.avatarImageURL}}">
         <ul class="info">
-            <li><a ng-href="{{ctrl.member.donationUrl}}" target="_blank" uib-tooltip="Donate to {{::ctrl.member.firstName}}!"><span class="fa fa-usd"></span></a></li>
+            <li><a ng-href="{{ctrl.member.donationUrl}}" target="_blank" uib-tooltip="Donate to {{::ctrl.member.firstName}}!"><span class="fa fa-heart"></span></a></li>
         </ul>
     </div>
     <div>{{::ctrl.member.firstName}} {{::ctrl.member.lastName}}</div>
-
     <uib-progressbar class="progress"
                      type="{{ctrl.member.status}}"
                      max="ctrl.member.info.fundraisingGoal" value="ctrl.member.info.totalRaisedAmount">
     </uib-progressbar>
-    <div ng-if="ctrl.expanded">
-        <uib-tabset>
-            <uib-tab heading="Story">
-            </uib-tab>
-            <uib-tab heading="Donations">
-                <ul>
-                    <li ng-repeat="donation in ctrl.donations">{{::(donation.donationAmount | currency) || 'Donation Hidden'}}</li>
-                </ul>
-            </uib-tab>
-        </uib-tabset>
-    </div>
 </div>

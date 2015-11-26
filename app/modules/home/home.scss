@@ -36,12 +36,15 @@
             margin-top:20px;
         }
     }
-
     #team {
-        @include tintedBg("styles/images/section-bg1.jpg", darken($primary, 20%), 0.2);
+        @include tintedBg("styles/images/section-bg1.jpg", darken($primary, 30%), 0.82);
         text-align: center;
-
+        color: $primary-text;
+        hr {
+            border-color: $primary-text;
+        }
     }
+
     #join {
         @include tintedBg("styles/images/section-bg3.jpg", darken($primary, 25%), 0.5);
         color: $primary-text;

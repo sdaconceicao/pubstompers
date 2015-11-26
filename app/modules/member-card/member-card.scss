@@ -5,9 +5,10 @@
     position:relative;
     img{
         border-radius: 50%;
+        border: 1px solid $primary-text;
     }
     &.captain img{
-        border: 1px solid $primary;
+        border: 1px solid $secondary-text;
     }
 
     .content:after{
@@ -31,12 +32,13 @@
         padding-top: 34%;
         padding-left: 0px;
         transition: all 0.3s ease 0s;
-        z-index: 5;
-
         li a{
             color: $primary-text;
             font-weight: bold;
             font-size:32px;
+            &:hover{
+                color: $secondary-text;
+            }
         }
     }
     &:hover {
