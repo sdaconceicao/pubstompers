@@ -45,6 +45,18 @@
         }
     }
 
+    #donate{
+        @include tintedBg("styles/images/section-bg4.jpg", darken($primary, 15%), 0.4);
+        text-align: center;
+        .fa {
+            color: $primary-text;
+            font-size: 50px;
+            padding-right: 15px;
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
     #join {
         @include tintedBg("styles/images/section-bg3.jpg", darken($primary, 25%), 0.5);
         color: $primary-text;
@@ -54,12 +66,15 @@
         text-align: center;
 
     }
-
     #contact {
         @include tintedBg("styles/images/section-bg4.jpg", darken($primary, 5%), 0.25);
         text-align: center;
+        color: darken($primary, 40%);
+        hr{
+            border-color: darken($primary, 40%);
+        }
         .fa {
-            color: $primary-text;
+            color: darken($primary, 40%);
             font-size: 50px;
             padding-right: 15px;
             &:hover {

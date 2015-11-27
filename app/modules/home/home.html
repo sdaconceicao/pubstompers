@@ -5,16 +5,7 @@
         <p>
             Bacon ipsum dolor amet drumstick boudin ham hock ut, ball tip flank do turkey kielbasa cillum pork chop tail velit. Kielbasa officia consequat jerky turducken cow in capicola dolore ea. Kielbasa ground round picanha tempor cillum officia fugiat boudin dolor laboris short ribs short loin exercitation prosciutto. Kevin cillum reprehenderit fatback pig ut anim aute. Leberkas sed pastrami, frankfurter dolore brisket nulla. Dolore consectetur ex, officia cow sed swine aute jerky hamburger chuck short ribs beef ribs drumstick esse. Deserunt irure dolore, ribeye pastrami prosciutto in eiusmod.
         </p>
-        <h3>Our Current Goal</h3>
-        <hr/>
-        <uib-progressbar class="progress"
-                         type="success"
-                         max="ctrl.teamInfo.fundraisingGoal" value="ctrl.teamInfo.totalRaisedAmount">
-            {{ctrl.teamInfo.totalRaisedAmount | currency}} / {{ctrl.teamInfo.fundraisingGoal | currency}}
-
-        </uib-progressbar>
     </div>
-
     <div class="col-md-6">
         <uib-carousel interval="10000">
             <uib-slide ng-repeat="slide in ctrl.slides">
@@ -35,6 +26,25 @@
         </li>
     </ul>
 </section>
+<section id="donate" class="container" fadeIn="500">
+    <h2>Please Donate!</h2>
+    <hr/>
+    <div class="col-md-6">
+        <p>All donations are tax deductible and go entirely to Children's Hospital of Pittsburgh to pay for families that can't afford treatments. </p>
+    </div>
+    <div class="col-md-6">
+        <label>Our Current Goal</label>
+        <uib-progressbar class="progress"
+                         type="success"
+                         max="ctrl.teamInfo.fundraisingGoal" value="ctrl.teamInfo.totalRaisedAmount">
+            {{ctrl.teamInfo.totalRaisedAmount | currency}} / {{ctrl.teamInfo.fundraisingGoal | currency}}
+        </uib-progressbar>
+    </div>
+    <div class="col-md-12">
+        <a class="btn btn-primary btn-lg" target="_blank" ng-href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.team&teamID={{ctrl.teamId}}">Donate Now!</a>
+    </div>
+
+</section>
 <section id="join" class="container" fadeIn="500">
     <h2>Join Us!</h2>
     <hr/>
@@ -51,5 +61,6 @@
         <li><a href="mailto:stephen@stephenandrewdesigns.com"><span class="fa fa-envelope"></span></a></li>
         <li><a href="//www.facebook.com/groups/756358254470165/" target="_blank"><span class="fa fa-facebook"></span></a></li>
         <li><a href="//www.twitter.com/PubstompPgh" target="_blank"><span class="fa fa-twitter"></span></a></li>
+        <li><a href="//www.twitch.tv/pghDorf" target="_blank"><span class="fa fa-twitch"></span></a></li>
     </ul>
 </section>
