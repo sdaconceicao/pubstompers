@@ -1,5 +1,7 @@
 #main {
     .container {
+        padding-bottom: 25px;
+        min-height: 500px;
         h2 {
             text-align: center;
             margin-top: 75px;
@@ -8,22 +10,21 @@
         h3{
             margin-top:20px;
         }
-
         hr {
             width: 100px;
             margin-bottom: 20px;
             border-width: 4px;
             border-color: #333;
         }
-        ul li {
-            display: inline-block;
+        ul {
+            padding-left:0px;
+            li {
+                display: inline-block;
+            }
         }
-        padding-bottom: 25px;
-        min-height: 500px;
         p{
             margin: 20px;
         }
-
     }
     #about {
         @include tintedBg("styles/images/section-bg2.jpg", darken($primary, 15%), 0.25);
