@@ -22,7 +22,6 @@ angular.module('pub', dependencies)
         $locationProvider.html5Mode({enabled: true, requireBase: false});
         $urlRouterProvider.otherwise('/home');
         $compileProvider.debugInfoEnabled(false);
-
     }])
     .run(['$templateCache', function ($templateCache){
 

@@ -10,7 +10,6 @@ var VendorConfig = function () {
             var newDirPath = dirPath || '',
                 minVendorList = [
                     newDirPath + vendorPath + 'jquery/dist/jquery.min.js',
-                    newDirPath + vendorPath + 'jquery.cookie/jquery.cookie.js',
                     newDirPath + vendorPath + 'jquery-placeholder/jquery.placeholder.js',
                     newDirPath + vendorPath + 'modernizr/modernizr.js',
                     newDirPath + vendorPath + 'fastclick/lib/fastclick.js',
@@ -22,7 +21,6 @@ var VendorConfig = function () {
                 ],
                 devVendorList = [
                     newDirPath + vendorPath + 'jquery/dist/jquery.js',
-                    newDirPath + vendorPath + 'jquery.cookie/jquery.cookie.js',
                     newDirPath + vendorPath + 'jquery-placeholder/jquery.placeholder.js',
                     newDirPath + vendorPath + 'modernizr/modernizr.js',
                     newDirPath + vendorPath + 'fastclick/lib/fastclick.js',

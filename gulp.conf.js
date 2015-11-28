@@ -6,9 +6,10 @@ var gulp = require('gulp'),
     karmaServer = require('karma').Server,
     webpack = require('webpack'),
     gutil = require("gulp-util"),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     htmlmin = require('gulp-htmlmin'),
     autoprefixer = require('gulp-autoprefixer'),
+    mergeStream = require('merge-stream'),
     jshint = require('gulp-jshint'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
@@ -20,6 +21,7 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     vendorConfig = require('./vendor.conf.js'),
     browserSync = require('browser-sync').create(),
+    reload = browserSync.reload,
     historyApiFallback = require('connect-history-api-fallback');
 ;
 
@@ -50,26 +52,7 @@ var production = function () {
     return buildTarget ==='production';
 };
 
-gulp.task('js', function () {
-    console.log("Building JS");
-    var wpconfig = WEBPACK_CONF;
-    wpconfig.entry = JS_MAIN_FILE;
-    wpconfig.output = {
-        path: DIST_DIR,
-        filename: JS_OUTPUT_FILE
-    };
-    webpack(wpconfig, function (err, stats) {
-        if (err) {
-            throw new gutil.PluginError('Error in Webpack bundle', err);
-        }
-        gutil.log('[webpack]', stats.toString({
-            colors: true,
-            chunks: false
-        }));
-    });
-});
-
-gulp.task('watch-js', function () {
+gulp.task('webpack', function () {
     console.log("Building JS Watch");
     var wpconfig = WEBPACK_CONF;
     wpconfig.entry = JS_MAIN_FILE;
@@ -111,34 +94,21 @@ gulp.task('templates', function () {
         .pipe(gulp.dest(DIST_DIR));
 });
 
-gulp.task('watch-templates', function () {
-    console.log("Watching Templates");
-    gulp.watch(TEMPLATE_WATCH_FILES, ['templates']);
-});
-
 gulp.task('sass', function (done) {
     console.log('Compiling CSS');
-
-    sass(SCSS_MAIN_FILE, { style: (production() ? 'compressed' : 'compressed') })
-        .pipe(autoprefixer('last 2 version'))
-        .pipe(gulp.dest(DIST_DIR));
-
-    return gulp.src([DIST_DIR + '/' + VENDOR_OUTPUT_CSS, DIST_DIR + '/' + MAIN_CSS_FILE])
-        .pipe(concat(OUTPUT_CSS_FILE))
-        .pipe(gulp.dest(DIST_DIR));
-
-});
-
-gulp.task('vendor-css', function(done){
-    return gulp.src(VENDOR_CSS_FILES)
+    var sassStream = gulp.src(SCSS_MAIN_FILE)
+        .pipe(sass({outputStyle: production() ? 'compressed' : 'compressed'}))
+        .pipe(autoprefixer('last 2 version')),
+        vendorStream = gulp.src(VENDOR_CSS_FILES)
         .pipe(concat(VENDOR_OUTPUT_CSS))
         .pipe(gulp.dest(DIST_DIR));
 
-});
+    return mergeStream(vendorStream, sassStream)
+        .pipe(concat(OUTPUT_CSS_FILE))
+        .pipe(gulp.dest(DIST_DIR))
+        .pipe(browserSync.stream());
 
-gulp.task('watch-sass', function () {
-    console.log("Watching Scss");
-    gulp.watch(SCSS_WATCH_FILES, ['sass']);
+
 });
 
 gulp.task('index', function(){
@@ -152,10 +122,6 @@ gulp.task('index', function(){
         .pipe(gulp.dest(DIST_DIR));
 });
 
-gulp.task('watch-index', function () {
-    console.log("Watching Index");
-    gulp.watch(APP_DIR + '/index.html', ['index']);
-});
 
 gulp.task('img', function () {
     console.log("Moving Images");
@@ -163,20 +129,10 @@ gulp.task('img', function () {
         .pipe(gulp.dest(DIST_DIR + '/styles/images'));
 });
 
-gulp.task('watch-img', function(){
-    console.log("Watching Images");
-    gulp.watch(APP_DIR + '/images/**/*', ['img']);
-});
-
 gulp.task('fonts', function () {
     console.log("Moving Fonts");
     gulp.src(FONT_FILES)
         .pipe(gulp.dest(DIST_DIR + '/fonts'));
-});
-
-gulp.task('watch-fonts', function(){
-    console.log("Watching Fontsxw");
-    gulp.watch(FONT_FILES, ['fonts']);
 });
 
 gulp.task('constants', function(){
@@ -220,17 +176,14 @@ gulp.task('browser-sync', function () {
             }
     });
 
-});
+    gulp.watch(TEMPLATE_WATCH_FILES, ['templates']);
+    gulp.watch(SCSS_WATCH_FILES, ['sass']);
+    gulp.watch(APP_DIR + '/index.html', ['index']);
+    gulp.watch(FONT_FILES, ['fonts']);
+    gulp.watch(APP_DIR + '/styles/images/*', ['img']);
 
-gulp.task('tdd', function (done) {
-    console.log('Start Jasmine Tests');
-    new karmaServer({
-        configFile: __dirname + '/karma.conf.js'
-    }, done).start();
 });
 
 gulp.task('default', function (done) {
-    runSequence('constants', 'index', 'img', 'templates', 'vendor-css', 'sass', 'fonts', 'vendor',
-        'watch-index', 'watch-img', 'watch-templates', 'watch-sass', 'watch-fonts', 'watch-js',
-        'browser-sync', done);
+    runSequence('constants', 'index', 'img', 'templates', 'sass', 'fonts', 'vendor', 'webpack', 'browser-sync', done);
 });
