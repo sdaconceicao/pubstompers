@@ -1,8 +1,13 @@
 {
-    "teams" : [{
-        "year": 2015,
-        "teamId": 22033,
+    "teams" : [
+    {
+        "year": 2016,
+        "teamId": 29710,
         "current": true
+    },
+    {
+        "year": 2015,
+        "teamId": 22033
     },
     {
         "year": 2014,
