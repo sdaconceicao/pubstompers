@@ -26,6 +26,14 @@
             margin: 20px;
         }
     }
+    #twitch {
+        @include tintedBg("styles/images/section-bg4.jpg", darken($primary, 5%), 0.25);
+        text-align: center;
+        color: darken($primary, 40%);
+        hr{
+            border-color: darken($primary, 40%);
+        }
+    }
     #about {
         @include tintedBg("styles/images/section-bg2.jpg", darken($primary, 15%), 0.25);
         text-align: center;
