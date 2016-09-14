@@ -52,7 +52,7 @@ var production = function () {
     return buildTarget ==='production';
 };
 
-gulp.task('webpack', function () {
+gulp.task('webpack', function (done) {
     console.log("Building JS Watch");
     var wpconfig = WEBPACK_CONF;
     wpconfig.entry = JS_MAIN_FILE;
@@ -60,7 +60,7 @@ gulp.task('webpack', function () {
         path: DIST_DIR,
         filename: JS_OUTPUT_FILE
     };
-    wpconfig.watch = true;
+    wpconfig.watch = argv.watch || true;
     wpconfig.devtool = 'source-map';
     webpack(wpconfig, function (err, stats) {
         if (err) {
@@ -71,6 +71,7 @@ gulp.task('webpack', function () {
             chunks: false
         }));
     });
+    done();
 });
 
 gulp.task('vendor', function () {
@@ -186,4 +187,8 @@ gulp.task('browser-sync', function () {
 
 gulp.task('default', function (done) {
     runSequence('constants', 'index', 'img', 'templates', 'sass', 'fonts', 'vendor', 'webpack', 'browser-sync', done);
+});
+
+gulp.task('build', function (done) {
+    runSequence('constants', 'index', 'img', 'templates', 'sass', 'fonts', 'vendor', 'webpack', done);
 });

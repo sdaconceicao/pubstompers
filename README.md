@@ -7,7 +7,6 @@ Pubstompers hub site. Built with Angular.
 * Uses Angular
 * Version 1.0
 
-
 ### Setup ###
 
 1. Run npm install
@@ -15,6 +14,10 @@ Pubstompers hub site. Built with Angular.
 
 ### Startup ###
 1. Run npm start
+
+### Build ###
+1. Run npm run build
+2. Results output to dist directory
 
 ### Questions? ###
 
