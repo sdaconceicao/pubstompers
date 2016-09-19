@@ -18,7 +18,7 @@
    viewBox="0 0 750.00001 750.00001"
    id="svg2"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="teamlogo (1).svg">
+   sodipodi:docname="teamlogo.svg">
   <metadata
      id="metadata82">
     <rdf:RDF>
@@ -27,7 +27,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -42,21 +42,21 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1858"
-     inkscape:window-height="1058"
+     inkscape:window-width="1680"
+     inkscape:window-height="957"
      id="namedview78"
      showgrid="false"
      inkscape:zoom="1"
      inkscape:cx="484.02787"
      inkscape:cy="329.5549"
-     inkscape:window-x="1432"
-     inkscape:window-y="-8"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
      units="pc" />
   <g
      id="g4227"
-     transform="translate(35.411765,6.631579)">
+     transform="translate(3.411765,30.631579)">
     <path
        style="fill:#000000"
        inkscape:connector-curvature="0"
@@ -99,9 +99,10 @@
        d="m 526.34985,113.6935 101.86997,0 0,33.95665 -101.86997,0 0,-33.95665 z" />
     <path
        style="fill:#000000"
-       inkscape:connector-curvature="0"
+       d="m 181.23828,177.28125 0,67.91406 -101.869139,0 0,33.95703 101.869139,0 0,33.95508 -67.91406,0 0,135.82813 67.91406,0 0,33.95703 -101.869139,0 0,33.95508 101.869139,0 0,67.91406 475.39258,0 0,-407.48047 -475.39258,0 z m -33.95703,169.7832 33.95703,0 0,67.91407 -33.95703,0 0,-67.91407 z"
+       transform="translate(-28.411765,-29.631579)"
        id="path22"
-       d="m 152.82662,147.65015 475.3932,0 0,407.47988 -475.3932,0 0,-67.91332 -101.869964,0 0,-33.95665 101.869964,0 0,-33.95666 -67.913308,0 0,-135.82662 67.913308,0 0,-33.95665 -101.869964,0 0,-33.95666 101.869964,0 0,-67.91332 z" />
+       inkscape:connector-curvature="0" />
     <path
        style="fill:#007236"
        inkscape:connector-curvature="0"
@@ -162,11 +163,6 @@
        inkscape:connector-curvature="0"
        id="path48"
        d="m 356.56656,283.47678 101.86997,0 0,33.95666 -101.86997,0 0,-33.95666 z" />
-    <path
-       style="fill:#ffffff"
-       inkscape:connector-curvature="0"
-       id="path50"
-       d="m 118.86997,317.43344 33.95665,0 0,67.91331 -33.95665,0 0,-67.91331 z" />
     <path
        style="fill:#00a651"
        inkscape:connector-curvature="0"

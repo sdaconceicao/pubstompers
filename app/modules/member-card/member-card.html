@@ -2,10 +2,10 @@
     <div class="content">
         <img ng-src="{{ctrl.member.avatarImageURL}}">
         <ul class="info">
-            <li><a ng-href="{{ctrl.member.donationUrl}}" target="_blank" uib-tooltip="Donate to {{::ctrl.member.firstName}}!"><span class="fa fa-heart"></span></a></li>
+            <li><a ng-href="{{ctrl.member.donationUrl}}" target="_blank" uib-tooltip="Donate to {{::ctrl.member.displayName}}!"><span class="fa fa-heart"></span></a></li>
         </ul>
     </div>
-    <div>{{::ctrl.member.firstName}} {{::ctrl.member.lastName}}</div>
+    <div>{{::ctrl.member.displayName}}</div>
     <uib-progressbar class="progress"
                      type="{{ctrl.member.status}}"
                      max="ctrl.member.info.fundraisingGoal" value="ctrl.member.info.totalRaisedAmount">
