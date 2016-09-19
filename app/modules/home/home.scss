@@ -65,6 +65,11 @@
                 color: $primary;
             }
         }
+        .progress-bar-success span{
+            position:absolute;
+            left: 41%;
+            color: #333;
+        }
     }
     #join {
         @include tintedBg("styles/images/section-bg3.jpg", darken($primary, 25%), 0.5);
