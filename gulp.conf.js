@@ -146,6 +146,7 @@ gulp.task('constants', function(){
             constants: {
                 api:{
                     extralifeUrl: '//www.extra-life.org/index.cfm?format=json&fuseaction=',
+                    twitchUrl: 'https://api.twitch.tv/kraken'
                 }
             }
         }))

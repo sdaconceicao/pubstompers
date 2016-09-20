@@ -12,5 +12,9 @@
     {
         "year": 2014,
         "teamId": 15841
-    }]
+    }],
+    "twitch": {
+        "name": "pubstomperspgh",
+        "clientId": "2x9k0c4z3yx4toq5avdpexj214ffcpc"
+    }
 }
