@@ -42,7 +42,8 @@
   "scripts": {
     "postinstall": "bower install",
     "start": "gulp --gulpfile gulp.conf.js",
-    "build": "gulp build --watch false --gulpfile gulp.conf.js"
+    "build": "gulp build --watch false --gulpfile gulp.conf.js",
+    "deploy": "rsync -av dist/ www@pubstomperspgh.com:sites/pubstomperspgh.com"
   },
   "dependencies": {
     "gulp-ng-constant": "^1.1.0"
