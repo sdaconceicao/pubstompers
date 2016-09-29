@@ -2,33 +2,65 @@
 'use strict';
 
 class ExtraLifeService{
-    constructor(RestService, api){
-        this.RestService = RestService;
+    constructor($q, api){
+        this.$q = $q;
         this.api = api;
     }
 
     getTeam(id){
-        return this.RestService.call({
-            url: this.api.extralifeUrl + 'donorDrive.team&teamID='+ id
-        })
+        let deferred = this.$q.defer();
+        $.jsonp({
+            url: this.api.extralifeUrl + 'donorDrive.team&teamID='+ id,
+            corsSupport: false,
+            jsonpSupport: false,
+            success: (response)=>{
+                deferred.resolve(response);
+            }});
+        return deferred.promise;
     }
     getTeamMembers(id){
-        return this.RestService.call({
-            url: this.api.extralifeUrl + 'donorDrive.teamParticipants&teamID='+ id
-        })
+        let deferred = this.$q.defer();
+        $.jsonp({
+            url: this.api.extralifeUrl + 'donorDrive.teamParticipants&teamID='+ id,
+            corsSupport: false,
+            jsonpSupport: false,
+            success: (response)=>{
+                deferred.resolve(response);
+            }});
+        return deferred.promise;
     }
     getMemberInfo(id){
-        return this.RestService.call({
-            url: this.api.extralifeUrl + 'donorDrive.participant&participantID=' + id
-        })
+        let deferred = this.$q.defer();
+        $.jsonp({
+            url: this.api.extralifeUrl + 'donorDrive.participant&participantID=' + id,
+            corsSupport: false,
+            jsonpSupport: false,
+            success: (response)=>{
+                deferred.resolve(response);
+            }});
+        return deferred.promise;
     }
     getMemberDonations(id){
-        return this.RestService.call({
-            url: this.api.extralifeUrl + 'donorDrive.participantDonations&participantID=' + id
-        })
+        let deferred = this.$q.defer();
+        $.jsonp({
+            url: this.api.extralifeUrl + 'donorDrive.participantDonations&participantID=' + id,
+            corsSupport: false,
+            jsonpSupport: false,
+            success: (response)=>{
+                deferred.resolve(response);
+            }});
+        return deferred.promise;
     }
     getDonationUrl(id){
-        return this.api.extralifeUrl + 'donate.participant&participantID=' + id;
+        let deferred = this.$q.defer();
+        $.jsonp({
+            url: this.api.extralifeUrl + 'donate.participant&participantID=' + id,
+            corsSupport: false,
+            jsonpSupport: false,
+            success: (response)=>{
+                deferred.resolve(response);
+            }});
+        return deferred.promise;
     }
 
 }
