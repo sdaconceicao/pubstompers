@@ -22,7 +22,7 @@ class HomeController {
             .then((teamInfo) => {
                 this.teamInfo = teamInfo;
                 return this.ExtraLifeService.getTeamMembers(this.teamId);
-                }, function(error){
+                }, (error) => {
                     this.error = true;
                 }
             )
@@ -33,7 +33,6 @@ class HomeController {
         this.TwitchService.getStreams()
             .then((streams) =>{
                 this.streams = streams;
-                console.log('streams', streams);
             });
     }
 }
