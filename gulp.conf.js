@@ -145,7 +145,7 @@ gulp.task('constants', function(){
             merge: true,
             constants: {
                 api:{
-                    extralifeUrl: '//www.extra-life.org/index.cfm?format=json&fuseaction=',
+                    extralifeUrl: 'https://crossorigin.me/http://www.extra-life.org/index.cfm?format=json&fuseaction=',
                     twitchUrl: 'https://api.twitch.tv/kraken'
                 }
             }
