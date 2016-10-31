@@ -1,13 +1,17 @@
 <div class="member-card" ng-class=" {'captain' : ctrl.member.info.isTeamCaptain}">
-    <div class="content">
-        <img ng-src="{{ctrl.member.avatarImageURL}}">
-        <ul class="info">
-            <li><a ng-href="{{ctrl.member.donationUrl}}" target="_blank" uib-tooltip="Donate to {{::ctrl.member.displayName}}!"><span class="fa fa-heart"></span></a></li>
-        </ul>
+    <div ng-if="!ctrl.loading">
+        <div class="content">
+            <img ng-src="{{ctrl.member.avatarImageURL}}">
+            <ul class="info">
+                <li><a ng-href="{{ctrl.member.donationUrl}}" target="_blank" uib-tooltip="Donate to {{::ctrl.member.displayName}}!"><span class="fa fa-heart"></span></a></li>
+            </ul>
+        </div>
+        <div>{{::ctrl.member.displayName}}</div>
+        <uib-progressbar class="progress"
+                         type="{{ctrl.member.status}}"
+                         max="ctrl.member.info.fundraisingGoal" value="ctrl.member.info.totalRaisedAmount">
+            ${{ctrl.member.info.totalRaisedAmount}} / ${{ctrl.member.info.fundraisingGoal}}
+        </uib-progressbar>
     </div>
-    <div>{{::ctrl.member.displayName}}</div>
-    <uib-progressbar class="progress"
-                     type="{{ctrl.member.status}}"
-                     max="ctrl.member.info.fundraisingGoal" value="ctrl.member.info.totalRaisedAmount">
-    </uib-progressbar>
+    <div ng-if="ctrl.loading"><span class="fa fa-spinner"></span></div>
 </div>

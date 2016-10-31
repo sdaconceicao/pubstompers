@@ -3,6 +3,9 @@
     margin:15px;
     text-align:center;
     position:relative;
+    &.loading{
+
+    }
     img{
         width: 150px;
         border-radius: 50%;
@@ -10,6 +13,12 @@
     }
     &.captain img{
         border: 1px solid $secondary-text;
+    }
+
+    .progress-bar-success span,.progress-bar-warning span{
+        position:absolute;
+        left: 28%;
+        color: #333;
     }
 
     .content:after{
@@ -44,7 +53,7 @@
         }
     }
     &:hover {
-        ul.info, {
+        ul.info {
             opacity: 1;
         }
         .content::after {

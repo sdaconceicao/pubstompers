@@ -6,7 +6,7 @@ function navMenu($window){
         templateUrl: 'nav-menu/nav-menu.html',
         restrict: 'E',
         replace: true,
-        link: function postLink(scope, element, attr) {
+        link: function postLink(scope, element, attxr) {
             $(document).ready(function(){
                 let navTop = $(element).offset().top;
                 $(element).find('a').on('click', function() {

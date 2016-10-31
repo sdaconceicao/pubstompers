@@ -54,7 +54,7 @@
         }
     }
 
-    #donate{
+    #donate, #events{
         @include tintedBg("styles/images/section-bg4.jpg", darken($primary, 15%), 0.4);
         text-align: center;
         .fa {
@@ -69,6 +69,12 @@
             position:absolute;
             left: 41%;
             color: #333;
+        }
+        li{
+            display: block;
+        }
+        a{
+            color: white;
         }
     }
     #join {
